@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lastadmin/splash_screen.dart';
 import 'package:lastadmin/webview_screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Last Admin',
       debugShowCheckedModeBanner: false,
-      home: WebViewPage(),
+      home: SplashScreen(),
     );
   }
 }

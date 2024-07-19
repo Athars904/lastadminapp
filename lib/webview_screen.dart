@@ -12,6 +12,7 @@ class WebViewPage extends StatefulWidget {
 
 class _WebViewPageState extends State<WebViewPage> {
   WebViewController? webViewController;
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -27,9 +28,15 @@ class _WebViewPageState extends State<WebViewPage> {
         onProgress: (int progress) {},
         onPageStarted: (String url) {
           log("The started page $url");
+          setState(() {
+            isLoading = true;
+          });
         },
         onPageFinished: (String url) async {
           log("The page finished $url");
+          setState(() {
+            isLoading = false;
+          });
           await _saveSessionData(url);
         },
         onWebResourceError: (WebResourceError error) {
@@ -63,7 +70,15 @@ class _WebViewPageState extends State<WebViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: WebViewWidget(controller: webViewController!),
+        child: Stack(
+          children: [
+            WebViewWidget(controller: webViewController!),
+            if (isLoading)
+              const Center(
+                child: CircularProgressIndicator(),
+              ),
+          ],
+        ),
       ),
     );
   }

@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.6
   webview_flutter: ^4.0.6
   shared_preferences: ^2.2.3
+  google_fonts: ^6.2.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -90,3 +92,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/
+    - assets/images/
+
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/1024.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "#ffffff"
+
