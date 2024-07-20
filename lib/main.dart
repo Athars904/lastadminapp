@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lastadmin/splash_screen.dart';
-import 'package:lastadmin/webview_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
